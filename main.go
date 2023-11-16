@@ -7,13 +7,12 @@ package randy
 // 		- Male
 // 		- Female
 // 2. Email
-// 3. Phone Numbers
-// 4. Browser Agent
-// 5. IP Address
+// 3. Browser Agent
+// 4. IP Address
 // 		- v4
 // 		- v6
-// 6. Latitude & Longitude
-// 7. Color
+// 5. Latitude & Longitude
+// 6. Color
 // 		- Name
 // 		- Hex
-// 8. MAC Address
+// 7. MAC Address
