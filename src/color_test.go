@@ -1,7 +1,7 @@
 package generations
 
 import (
-	"randy/data"
+	"github.com/MrVSiK/randy/data"
 	"strings"
 	"testing"
 	"unicode"

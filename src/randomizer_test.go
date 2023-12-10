@@ -3,7 +3,7 @@ package generations
 import (
 	"encoding/binary"
 	"encoding/hex"
-	"randy/data"
+	"github.com/MrVSiK/randy/data"
 	"testing"
 )
 

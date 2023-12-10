@@ -2,7 +2,7 @@ package generations
 
 import (
 	"testing"
-	"randy/data"
+	"github.com/MrVSiK/randy/data"
 )
 
 func TestGetMaleName(t *testing.T){

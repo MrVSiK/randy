@@ -3,7 +3,7 @@ Package randy provides a simple way to generate random data.
 */
 package randy
 
-import generations "randy/src"
+import generations "github.com/MrVSiK/randy/src"
 
 // Generates a name. Can be a `female` or `male` name.
 func Name() (string, error) {
