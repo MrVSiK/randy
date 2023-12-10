@@ -3,12 +3,13 @@ package generations
 import (
 	"crypto/rand"
 	"encoding/binary"
+	"encoding/hex"
 	"errors"
 )
 
 func GetRandomInteger(upperLimit int) (uint, error) {
 	if upperLimit < 0 {
-		return 0, errors.New("upper limit less than 0");
+		return 0, errors.New("upper limit cannot be less than 0");
 	}
 
 	randomBytes := make([]byte, 8);
@@ -19,4 +20,20 @@ func GetRandomInteger(upperLimit int) (uint, error) {
 		return 0, err;
 	}
 	return uint(binary.BigEndian.Uint64(randomBytes) % uint64(upperLimit)), nil;
+}
+
+func GetRandomHex(upperLimmit int) (string, error){
+	if upperLimmit < 0 {
+		return "", errors.New("upper limit cannot be less than 0")
+	}
+
+	val, err := GetRandomInteger(upperLimmit);
+	if err != nil {
+		return "", err;
+	}
+	buffer := make([]byte, 8);
+
+	binary.BigEndian.PutUint64(buffer, uint64(val));
+
+	return hex.EncodeToString(buffer)[12:], nil;
 }

@@ -1,11 +1,13 @@
 package generations
 
 import (
+	"encoding/binary"
+	"encoding/hex"
 	"randy/data"
 	"testing"
 )
 
-func TestNegativeNumberInput(t *testing.T){
+func TestIntegerNegativeNumberInput(t *testing.T){
 	val, err := GetRandomInteger(-10);
 	if err == nil {
 		t.Fatalf("Upper Limit less than 0");
@@ -16,7 +18,7 @@ func TestNegativeNumberInput(t *testing.T){
 	}
 }
 
-func TestLimits(t *testing.T){
+func TestIntegerLimits(t *testing.T){
 	for i := 0; i < data.NumberOfMaleNames; i++ {
 		val, err := GetRandomInteger(data.NumberOfMaleNames);
 		if err != nil {
@@ -24,11 +26,23 @@ func TestLimits(t *testing.T){
 		}
 
 		if val >= uint(data.NumberOfMaleNames) {
-			t.Fatalf("Value exceeds upper limit");
+			t.Fatalf("Value exceeds/equals upper limit");
 		}
+	}
+}
 
-		if val < 0 {
-			t.Fatalf("Value falls below lower limit");
+func TestHex(t *testing.T){
+	buffer := make([]byte, 8);
+	for i := 0; i < data.NumberOfMaleNames; i++ {
+		val, err := GetRandomHex(data.NumberOfMaleNames);
+		if err != nil {
+			t.Fatalf(err.Error());
+		}
+		binary.BigEndian.PutUint64(buffer, uint64(data.NumberOfMaleNames));
+		upperLimit := hex.EncodeToString(buffer)[12:];
+
+		if val >= upperLimit {
+			t.Fatalf("Value exceeds/equals upper limit");
 		}
 	}
 }
