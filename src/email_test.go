@@ -12,11 +12,11 @@ func TestGetEmail(t *testing.T) {
 	}
 
 	if !strings.Contains(email, "@") {
-		t.Fatalf("Invalid email format");
+		t.Fatalf("invalid email format");
 	}
 
 	if email == "" {
-		t.Fatalf("Invalid email");
+		t.Fatalf("invalid email");
 	}
 }
 
@@ -27,10 +27,10 @@ func TestGetEmailWithCustomProvider(t *testing.T) {
 	}
 
 	if !strings.Contains(email, "@") {
-		t.Fatalf("Invalid custom email format");
+		t.Fatalf("invalid custom email format");
 	}
 
 	if !strings.HasSuffix(email, "test.org") {
-		t.Fatalf("Invalid custom email");
+		t.Fatalf("invalid custom email");
 	}
 }

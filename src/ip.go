@@ -29,7 +29,7 @@ func GetIpv6() (string, error) {
 	var ip string;
 
 	for i := 0; i<8; i++ {
-		val, err := GetRandomHex(65535);
+		val, err := GetRandomHex(65535, 2);
 		if err != nil {
 			return "", err;
 		}
@@ -175,7 +175,7 @@ func GetIpv6WithCustomSegment(formatString string) (string, error) {
 
 	for i := range parts {
 		if parts[i] == "#" {
-			val, err := GetRandomHex(65535);
+			val, err := GetRandomHex(65535, 2);
 			if err != nil {
 				return ip, err;
 			}

@@ -7,7 +7,7 @@ import (
 	"errors"
 )
 
-func GetRandomInteger(upperLimit int) (uint, error) {
+func GetRandomInteger(upperLimit uint) (uint, error) {
 	if upperLimit < 0 {
 		return 0, errors.New("upper limit cannot be less than 0");
 	}
@@ -22,7 +22,7 @@ func GetRandomInteger(upperLimit int) (uint, error) {
 	return uint(binary.BigEndian.Uint64(randomBytes) % uint64(upperLimit)), nil;
 }
 
-func GetRandomHex(upperLimmit int) (string, error){
+func GetRandomHex(upperLimmit, numberOfBytes uint) (string, error){
 	if upperLimmit < 0 {
 		return "", errors.New("upper limit cannot be less than 0")
 	}
@@ -35,5 +35,5 @@ func GetRandomHex(upperLimmit int) (string, error){
 
 	binary.BigEndian.PutUint64(buffer, uint64(val));
 
-	return hex.EncodeToString(buffer)[12:], nil;
+	return hex.EncodeToString(buffer)[16 - numberOfBytes*2:], nil;
 }

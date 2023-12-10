@@ -73,8 +73,6 @@ func TestGetIpv6(t *testing.T) {
 	if len(strings.Split(ip, ":")) != 8 {
 		t.Fatalf("8 segments not created");
 	}
-
-	println(ip);
 }
 
 func TestCheckIpStringForIPv6(t *testing.T){

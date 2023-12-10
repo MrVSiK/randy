@@ -2,4 +2,4 @@ package data
 
 var EmailProviders = []string{"gmail", "hotmail", "yahoo"};
 
-var LengthOfEmailProviders = 3;
+var LengthOfEmailProviders uint = 3;

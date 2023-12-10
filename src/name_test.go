@@ -6,10 +6,12 @@ import (
 )
 
 func TestGetMaleName(t *testing.T){
-	if len(data.MaleNames) != data.NumberOfMaleNames {
-		t.Fatalf("Actual number of male names does not match with given number of male names");
+	if uint(len(data.MaleNames)) != data.NumberOfMaleNames {
+		t.Fatalf("number of male names does not match length of array");
 	}
-	for i := 0; i < data.NumberOfMaleNames; i++ {
+
+	var i uint;
+	for i = 0; i < data.NumberOfMaleNames; i++ {
 		_, err := GetMaleName();
 		if err != nil {
 			t.Fatalf(err.Error());
@@ -18,8 +20,8 @@ func TestGetMaleName(t *testing.T){
 }
 
 func TestGetFemaleName(t *testing.T){
-	if len(data.FemaleNames) != data.NumberOfFemaleNames {
-		t.Fatalf("Actual number of female names does not match with given number of female names");
+	if uint(len(data.FemaleNames)) != data.NumberOfFemaleNames {
+		t.Fatalf("number of female names does not match length of array");
 	}
 	name, err := GetFemaleName();
 	if err != nil {
@@ -27,7 +29,8 @@ func TestGetFemaleName(t *testing.T){
 	}
 	bool := true;
 
-	for i := 0; i < data.NumberOfFemaleNames; i++ {
+	var i uint;
+	for i = 0; i < data.NumberOfFemaleNames; i++ {
 		if(data.FemaleNames[i] == name){
 			bool = false;
 		}
